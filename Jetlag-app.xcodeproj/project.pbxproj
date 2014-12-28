@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390ED7401A50A66D00D35239 /* DateCalc.m in Sources */ = {isa = PBXBuildFile; fileRef = 390ED73F1A50A66D00D35239 /* DateCalc.m */; };
 		39A9D0191A07023D006735DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A9D0181A07023D006735DB /* main.m */; };
 		39A9D01C1A07023D006735DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A9D01B1A07023D006735DB /* AppDelegate.m */; };
 		39A9D01F1A07023D006735DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A9D01E1A07023D006735DB /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		390ED73E1A50A66D00D35239 /* DateCalc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCalc.h; sourceTree = "<group>"; };
+		390ED73F1A50A66D00D35239 /* DateCalc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCalc.m; sourceTree = "<group>"; };
 		39A9D0131A07023D006735DB /* Jetlag-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jetlag-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A9D0171A07023D006735DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A9D0181A07023D006735DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				39A9D01B1A07023D006735DB /* AppDelegate.m */,
 				39A9D01D1A07023D006735DB /* ViewController.h */,
 				39A9D01E1A07023D006735DB /* ViewController.m */,
+				390ED73E1A50A66D00D35239 /* DateCalc.h */,
+				390ED73F1A50A66D00D35239 /* DateCalc.m */,
 				39A9D0201A07023D006735DB /* Main.storyboard */,
 				39A9D0231A07023D006735DB /* Images.xcassets */,
 				39A9D0251A07023D006735DB /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				39A9D01F1A07023D006735DB /* ViewController.m in Sources */,
 				39A9D01C1A07023D006735DB /* AppDelegate.m in Sources */,
+				390ED7401A50A66D00D35239 /* DateCalc.m in Sources */,
 				39A9D0191A07023D006735DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +418,7 @@
 				39A9D0381A07023D006735DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A9D0391A07023D006735DB /* Build configuration list for PBXNativeTarget "Jetlag-appTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				39A9D03B1A07023D006735DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
