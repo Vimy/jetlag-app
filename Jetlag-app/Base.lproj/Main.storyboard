@@ -35,12 +35,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV8-uw-R8f">
-                                <rect key="frame" x="158" y="629" width="57" height="30"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-0y-eoE">
                                 <rect key="frame" x="16" y="20" width="30" height="30"/>
                                 <state key="normal" title="?">
@@ -53,8 +47,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0zM-Gq-3me" kind="custom" id="Dd9-3H-W1j"/>
+                                    <segue destination="7ez-bq-r6n" kind="custom" id="vbc-VF-3ZF"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ7-sq-uum">
+                                <rect key="frame" x="140" y="176" width="92" height="30"/>
+                                <state key="normal" title="Cancel Alarm">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uv1-3Y-KcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.5" y="278.5"/>
+            <point key="canvasLocation" x="2105.5" y="293.5"/>
         </scene>
         <!--Set Alarm-->
         <scene sceneID="ufC-wZ-h7g">
@@ -126,12 +126,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150.5" y="278.5"/>
+            <point key="canvasLocation" x="4507.5" y="293.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Notifications View Controller-->
         <scene sceneID="dpj-ZQ-VUv">
             <objects>
-                <tableViewController id="0zM-Gq-3me" sceneMemberID="viewController">
+                <tableViewController id="0zM-Gq-3me" customClass="NotificationsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rEL-vS-aAt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +139,7 @@
                         <sections>
                             <tableViewSection headerTitle="Set Alarm" footerTitle="Alarm will be set 10 min before your wakeup time so you have time to eat something." id="YZd-4L-rTj">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yms-gG-iE0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" id="yms-gG-iE0">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yms-gG-iE0" id="aNP-AJ-wrn">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -159,6 +159,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="163" id="TcK-Tg-MDb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TcK-Tg-MDb" id="G0h-JF-4MO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-CZ-ilI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="443925599.94927001">
+                                                        <!--2015-01-26 00:39:59 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="setAlarmTime:" destination="0zM-Gq-3me" eventType="valueChanged" id="OoY-N1-NZf"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Notifications" footerTitle="Set your notifications" id="Qkm-zy-bmj">
@@ -170,6 +187,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NVe-IK-9CW">
                                                     <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="setEatReminderNotification:" destination="0zM-Gq-3me" eventType="valueChanged" id="ZEv-Fp-ReM"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder to eat before time is up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBr-wc-bHb">
                                                     <rect key="frame" x="8" y="11" width="256" height="21"/>
@@ -185,8 +205,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9n-VE-9e6" id="GqP-2c-xeq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminde me:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRR-Eb-ar7">
-                                                    <rect key="frame" x="8" y="11" width="102" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRR-Eb-ar7">
+                                                    <rect key="frame" x="8" y="11" width="93" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -207,6 +227,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGO-Ci-iGF">
                                                     <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="setStartOfFastNotification:" destination="0zM-Gq-3me" eventType="valueChanged" id="7XO-gT-7PT"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me to stop eating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUE-Ke-Jop">
                                                     <rect key="frame" x="8" y="11" width="199" height="21"/>
@@ -225,11 +248,46 @@
                             <outlet property="delegate" destination="0zM-Gq-3me" id="Njn-Wm-SLv"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="QXQ-s0-AGk">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="yT7-J5-hC0">
+                            <connections>
+                                <segue destination="8oD-iI-UZQ" kind="unwind" unwindAction="unwindChangeScreen:" id="eHe-EX-rt0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3xF-GQ-Sms"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="datePickerCell" destination="TcK-Tg-MDb" id="pff-i5-Ke3"/>
+                        <outlet property="remindMeCellTextLabel" destination="nRR-Eb-ar7" id="DLq-RP-t1t"/>
+                        <outlet property="reminderLabel" destination="RFq-JA-S6d" id="grQ-19-P8n"/>
+                        <outlet property="setReminderTimeCell" destination="g9n-VE-9e6" id="0SO-vi-HQS"/>
+                        <outlet property="wakeUpTimeDatePicker" destination="Ut1-CZ-ilI" id="bVq-Je-K1h"/>
+                        <outlet property="wakeUpTimeLabel" destination="9p3-2X-fVg" id="iQy-0u-xnZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I04-Z3-DqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8oD-iI-UZQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1650.5" y="278.5"/>
+            <point key="canvasLocation" x="3515.5" y="278.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7zK-M5-dLF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ez-bq-r6n" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iVe-kS-Dpb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0zM-Gq-3me" kind="relationship" relationship="rootViewController" id="1Iw-cJ-gS7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VfE-nh-cqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2840" y="302"/>
         </scene>
     </scenes>
 </document>

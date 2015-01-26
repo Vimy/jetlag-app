@@ -7,21 +7,39 @@
 //
 
 #import "MainViewController.h"
+#import "TransitionManager.h"
 
 @interface MainViewController ()
-
+{
+    TransitionManager *TSManager;
+}
 @end
 
 @implementation MainViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    TSManager = [[TransitionManager alloc]init];
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MainViewController *toViewController = segue.destinationViewController;
+    toViewController.transitioningDelegate = TSManager;
+}
+
+
+- (IBAction)unwindChangeScreen:(UIStoryboardSegue *)segue
+{
+    
 }
 
 /*
