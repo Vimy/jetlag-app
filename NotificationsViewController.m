@@ -10,6 +10,8 @@
 
 #define kDatePickerSection 0
 #define kDatePickerIndex 1
+#define kreminderDatePickerSection 1
+#define kreminderDatePickerIndex 2
 #define kDatePickerCellHeight 164
 @interface NotificationsViewController ()
 @property (strong, nonatomic) IBOutlet UIDatePicker *wakeUpTimeDatePicker;
@@ -19,7 +21,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *reminderLabel;
 @property (strong, nonatomic) IBOutlet UILabel *remindMeCellTextLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) IBOutlet UIDatePicker *reminderMinutesDatePicker;
+@property (strong, nonatomic) IBOutlet UITableViewCell *reminderDatePickerCell;
 @property  BOOL datePickerIsShowing;
+@property BOOL reminderDatePickerIsShowing;
 @end
 
 @implementation NotificationsViewController
@@ -29,8 +34,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.wakeUpTimeDatePicker.hidden = YES;
+    self.reminderMinutesDatePicker.hidden = YES;
  //   self.datePickerCell.hidden = YES;
     self.datePickerIsShowing = NO;
+    self.reminderDatePickerIsShowing = NO;
+    self.reminderMinutesDatePicker.datePickerMode = UIDatePickerModeTime;
+    self.wakeUpTimeDatePicker.datePickerMode = UIDatePickerModeTime;
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [ self.dateFormatter setDateFormat:@"HH:mm"];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -54,6 +66,11 @@
         height = self.datePickerIsShowing ? kDatePickerCellHeight : 0.0f;
         
     }
+    else if (indexPath.row == kreminderDatePickerIndex & indexPath.section == 1)
+    {
+        height = self.reminderDatePickerIsShowing ? kDatePickerCellHeight : 0.0f;
+    }
+    
     
     return height;
 }
@@ -124,6 +141,44 @@
                      }];
 }
 
+- (void)showReminderDatePickerCell
+{
+    
+    self.reminderDatePickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    
+    [self.tableView endUpdates];
+    
+    self.reminderMinutesDatePicker.hidden = NO;
+    self.reminderMinutesDatePicker.alpha = 0.0f;
+    NSLog(@"Tiet");
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.reminderMinutesDatePicker.alpha = 1.0f;
+        
+    }];
+    
+}
+
+
+- (void)hideReminderDatePickerCell
+{
+ 
+    self.reminderDatePickerIsShowing  = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.reminderMinutesDatePicker.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.reminderMinutesDatePicker.hidden = YES;
+                     }];
+
+}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,6 +194,17 @@
         }else {
             
             [self showDatePickerCell];
+        }
+    }
+    else if (indexPath.row == 1 & indexPath.section == 1)
+    {
+        if (self.reminderDatePickerIsShowing)
+        {
+            [self hideReminderDatePickerCell];
+        }
+        else
+        {
+            [self showReminderDatePickerCell];
         }
     }
     

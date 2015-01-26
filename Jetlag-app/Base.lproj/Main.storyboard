@@ -220,18 +220,32 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="E8q-1w-sbU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="E8q-1w-sbU">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E8q-1w-sbU" id="XVv-bv-fAS">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGO-Ci-iGF">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H61-c9-ALd">
+                                                    <rect key="frame" x="0.0" y="-1" width="375" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="443930298.712538">
+                                                        <!--2015-01-26 01:58:18 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wRO-VX-1Mw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wRO-VX-1Mw" id="ZZm-Ax-DuL">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbR-jm-gVY">
                                                     <rect key="frame" x="318" y="8" width="51" height="31"/>
                                                     <connections>
-                                                        <action selector="setStartOfFastNotification:" destination="0zM-Gq-3me" eventType="valueChanged" id="7XO-gT-7PT"/>
+                                                        <action selector="setStartOfFastNotification:" destination="0zM-Gq-3me" eventType="valueChanged" id="jRY-9V-NIO"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me to stop eating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUE-Ke-Jop">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me to stop eating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-Ku-mZj">
                                                     <rect key="frame" x="8" y="11" width="199" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -260,7 +274,9 @@
                     <connections>
                         <outlet property="datePickerCell" destination="TcK-Tg-MDb" id="pff-i5-Ke3"/>
                         <outlet property="remindMeCellTextLabel" destination="nRR-Eb-ar7" id="DLq-RP-t1t"/>
+                        <outlet property="reminderDatePickerCell" destination="E8q-1w-sbU" id="tNL-bu-O8h"/>
                         <outlet property="reminderLabel" destination="RFq-JA-S6d" id="grQ-19-P8n"/>
+                        <outlet property="reminderMinutesDatePicker" destination="H61-c9-ALd" id="Xcr-C8-ERI"/>
                         <outlet property="setReminderTimeCell" destination="g9n-VE-9e6" id="0SO-vi-HQS"/>
                         <outlet property="wakeUpTimeDatePicker" destination="Ut1-CZ-ilI" id="bVq-Je-K1h"/>
                         <outlet property="wakeUpTimeLabel" destination="9p3-2X-fVg" id="iQy-0u-xnZ"/>
