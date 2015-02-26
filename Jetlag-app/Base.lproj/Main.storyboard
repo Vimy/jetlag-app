@@ -205,9 +205,9 @@
                                                         <action selector="setEatReminderNotification:" destination="0zM-Gq-3me" eventType="valueChanged" id="ZEv-Fp-ReM"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder to eat before time is up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBr-wc-bHb">
-                                                    <rect key="frame" x="8" y="11" width="256" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder to eat something before fast starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBr-wc-bHb">
+                                                    <rect key="frame" x="8" y="11" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -282,7 +282,11 @@
                                 <segue destination="8oD-iI-UZQ" kind="unwind" unwindAction="unwindChangeScreen:" id="eHe-EX-rt0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="3xF-GQ-Sms"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3xF-GQ-Sms">
+                            <connections>
+                                <action selector="saveNotifications:" destination="0zM-Gq-3me" id="ybq-d5-BQn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

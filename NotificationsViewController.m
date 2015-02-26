@@ -7,12 +7,15 @@
 //
 
 #import "NotificationsViewController.h"
+#import "DateCalc.h"
 
 #define kDatePickerSection 0
 #define kDatePickerIndex 1
 #define kreminderDatePickerSection 1
 #define kreminderDatePickerIndex 2
 #define kDatePickerCellHeight 164
+
+
 @interface NotificationsViewController ()
 @property (strong, nonatomic) IBOutlet UIDatePicker *wakeUpTimeDatePicker;
 @property (strong, nonatomic) IBOutlet UITableViewCell *datePickerCell;
@@ -25,13 +28,15 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *reminderDatePickerCell;
 @property  BOOL datePickerIsShowing;
 @property BOOL reminderDatePickerIsShowing;
+@property BOOL isReminderToStopEating;
 @end
 
 @implementation NotificationsViewController
 
 //http://masteringios.com/blog/2013/11/18/ios-7-in-line-uidatepicker-part-2/2/
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.wakeUpTimeDatePicker.hidden = YES;
     self.reminderMinutesDatePicker.hidden = YES;
@@ -43,6 +48,9 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [ self.dateFormatter setDateFormat:@"HH:mm"];
     
+    
+    self.isReminderToStopEating = true;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -50,7 +58,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -74,6 +83,37 @@
     
     return height;
 }
+
+
+
+
+- (IBAction)saveNotifications:(UIBarButtonItem *)sender
+{
+    if (self.isReminderToStopEating)
+    {
+        DateCalc *timeObject = [[DateCalc alloc]init];
+        NSDate *notificationDate = [timeObject calculateTimeToStopEating:self.wakeUpTimeDatePicker.date];
+        NSLog(@"Dit is het tijdstip dat gekozen is: %@", notificationDate);
+        
+        UIApplication *app = [UIApplication sharedApplication];
+        UILocalNotification *eatAlarm = [[UILocalNotification alloc]init];
+        eatAlarm.fireDate = notificationDate;
+        eatAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        eatAlarm.alertBody = @"Nu moet je stoppen met eten!";
+        
+        [app scheduleLocalNotification:eatAlarm];
+        
+    }
+    else
+    {
+        NSLog(@"nope");
+    }
+  
+    
+    
+}
+
+
 - (IBAction)setAlarmTime:(UIDatePicker *)sender
 {
     self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date];
@@ -84,7 +124,14 @@
 
 - (IBAction)setStartOfFastNotification:(UISwitch *)sender
 {
-    
+    if (sender.on)
+    {
+        self.isReminderToStopEating = true;
+    }
+    else
+    {
+        self.isReminderToStopEating = false;
+    }
     
 }
 
@@ -107,7 +154,8 @@
 
 }
 
-- (void)showDatePickerCell {
+- (void)showDatePickerCell
+{
     
     self.datePickerIsShowing = YES;
     
@@ -125,7 +173,8 @@
     }];
 }
 
-- (void)hideDatePickerCell {
+- (void)hideDatePickerCell
+{
     
     self.datePickerIsShowing = NO;
     
