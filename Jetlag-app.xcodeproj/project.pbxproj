@@ -15,6 +15,7 @@
 		39A9D0241A07023D006735DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9D0231A07023D006735DB /* Images.xcassets */; };
 		39A9D0271A07023D006735DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A9D0251A07023D006735DB /* LaunchScreen.xib */; };
 		39A9D0331A07023D006735DB /* Jetlag_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A9D0321A07023D006735DB /* Jetlag_appTests.m */; };
+		39D46B9A1A9E7F3E0050232D /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D46B991A9E7F3E0050232D /* NotificationManager.m */; };
 		39F85C181A756EA5003557E3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F85C171A756EA5003557E3 /* MainViewController.m */; };
 		39F85C1E1A75C51E003557E3 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F85C1D1A75C51E003557E3 /* NotificationsViewController.m */; };
 		39F85C211A75C9F4003557E3 /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F85C201A75C9F4003557E3 /* TransitionManager.m */; };
@@ -46,6 +47,8 @@
 		39A9D02C1A07023D006735DB /* Jetlag-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jetlag-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A9D0311A07023D006735DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A9D0321A07023D006735DB /* Jetlag_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Jetlag_appTests.m; sourceTree = "<group>"; };
+		39D46B981A9E7F3E0050232D /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		39D46B991A9E7F3E0050232D /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		39F85C161A756EA5003557E3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		39F85C171A756EA5003557E3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		39F85C1C1A75C51E003557E3 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationsViewController.h; path = ../NotificationsViewController.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				390ED73E1A50A66D00D35239 /* DateCalc.h */,
 				390ED73F1A50A66D00D35239 /* DateCalc.m */,
 				39A9D0201A07023D006735DB /* Main.storyboard */,
+				39D46B981A9E7F3E0050232D /* NotificationManager.h */,
+				39D46B991A9E7F3E0050232D /* NotificationManager.m */,
 				39F85C161A756EA5003557E3 /* MainViewController.h */,
 				39F85C171A756EA5003557E3 /* MainViewController.m */,
 				39F85C1C1A75C51E003557E3 /* NotificationsViewController.h */,
@@ -246,6 +251,7 @@
 			files = (
 				39A9D01F1A07023D006735DB /* ViewController.m in Sources */,
 				39A9D01C1A07023D006735DB /* AppDelegate.m in Sources */,
+				39D46B9A1A9E7F3E0050232D /* NotificationManager.m in Sources */,
 				390ED7401A50A66D00D35239 /* DateCalc.m in Sources */,
 				39F85C211A75C9F4003557E3 /* TransitionManager.m in Sources */,
 				39F85C181A756EA5003557E3 /* MainViewController.m in Sources */,

@@ -13,6 +13,7 @@
 {
     TransitionManager *TSManager;
 }
+@property (strong, nonatomic) IBOutlet UILabel *AlarmTimeLabel;
 @end
 
 @implementation MainViewController
@@ -21,7 +22,11 @@
 {
     [super viewDidLoad];
     TSManager = [[TransitionManager alloc]init];
+    self.cancelAlarmButton.hidden = YES;
+    self.fastingBeginsLabel.hidden = YES;
+    self.fastingBeginsHourLabel.hidden = YES;
     
+    self.AlarmTimeLabel.text = @"08:00";
     // Do any additional setup after loading the view.
 }
 
