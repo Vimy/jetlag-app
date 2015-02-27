@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="J17-hs-vVO">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -30,20 +31,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-0y-eoE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-0y-eoE">
                                 <rect key="frame" x="16" y="20" width="30" height="30"/>
                                 <state key="normal" title="?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O94-yx-TLX">
-                                <rect key="frame" x="292" y="20" width="67" height="30"/>
-                                <state key="normal" title="Set Alarm">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7ez-bq-r6n" kind="custom" id="vbc-VF-3ZF"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ7-sq-uum">
                                 <rect key="frame" x="140" y="176" width="92" height="30"/>
@@ -51,20 +43,28 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="07:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-zx-5kL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-zx-5kL">
                                 <rect key="frame" x="84" y="84" width="205" height="104"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O94-yx-TLX">
+                                <rect key="frame" x="292" y="20" width="67" height="30"/>
+                                <state key="normal" title="Set Alarm">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7ez-bq-r6n" kind="presentation" id="vbc-VF-3ZF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="3Jk-zx-5kL" secondAttribute="centerY" constant="197.5" id="5DE-Jq-Boa"/>
-                            <constraint firstItem="3Jk-zx-5kL" firstAttribute="top" secondItem="oKw-61-apx" secondAttribute="bottom" constant="64" id="BbF-F9-Zbk"/>
-                            <constraint firstItem="O94-yx-TLX" firstAttribute="leading" secondItem="p74-bN-rFf" secondAttribute="leadingMargin" constant="276" id="FyD-Lz-c2X"/>
-                            <constraint firstItem="O94-yx-TLX" firstAttribute="trailing" secondItem="p74-bN-rFf" secondAttribute="trailingMargin" id="Ql1-JH-XXQ"/>
-                            <constraint firstItem="O94-yx-TLX" firstAttribute="top" secondItem="oKw-61-apx" secondAttribute="bottom" id="sxc-Ds-fto"/>
+                            <constraint firstItem="O94-yx-TLX" firstAttribute="trailing" secondItem="p74-bN-rFf" secondAttribute="trailingMargin" id="L1P-ag-GEd"/>
+                            <constraint firstItem="O94-yx-TLX" firstAttribute="baseline" secondItem="0a3-0y-eoE" secondAttribute="baseline" id="Sb0-S7-0DQ"/>
+                            <constraint firstItem="0a3-0y-eoE" firstAttribute="leading" secondItem="p74-bN-rFf" secondAttribute="leadingMargin" id="Yvl-KO-7az"/>
+                            <constraint firstItem="O94-yx-TLX" firstAttribute="top" secondItem="oKw-61-apx" secondAttribute="bottom" id="ZbI-sD-Ytr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="How does it work?" id="2Mh-BI-nYW"/>

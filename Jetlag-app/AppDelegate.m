@@ -18,13 +18,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // iOS 8 support
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
+#endif
+    
   
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    //UIApplicationState state = [application applicationState];
+    //if (state == UIApplicationStateActive)
+    //{
+      //  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stoppen met eten" message:notification.alertBody delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        //[alert show];
+    //}
+    
+    // application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

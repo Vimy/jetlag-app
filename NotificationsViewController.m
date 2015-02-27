@@ -98,9 +98,11 @@
         UIApplication *app = [UIApplication sharedApplication];
         UILocalNotification *eatAlarm = [[UILocalNotification alloc]init];
         eatAlarm.fireDate = notificationDate;
-        eatAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        eatAlarm.timeZone = [NSTimeZone localTimeZone];
         eatAlarm.alertBody = @"Nu moet je stoppen met eten!";
-        
+        eatAlarm.alertAction = @"Stop met eten!!";
+        eatAlarm.soundName = UILocalNotificationDefaultSoundName;
+        eatAlarm.applicationIconBadgeNumber = [app applicationIconBadgeNumber]+1;
         [app scheduleLocalNotification:eatAlarm];
         
     }
