@@ -33,7 +33,7 @@
 
 @implementation NotificationsViewController
 
-//http://masteringios.com/blog/2013/11/18/ios-7-in-line-uidatepicker-part-2/2/
+
 
 - (void)viewDidLoad
 {
@@ -51,12 +51,7 @@
     
     self.isReminderToStopEating = true;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    }
 
 - (void)didReceiveMemoryWarning
 {

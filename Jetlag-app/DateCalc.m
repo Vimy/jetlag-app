@@ -18,11 +18,8 @@
     NSDateComponents *components = [[NSDateComponents alloc]init];
     [components setHour:hoursToRemove];
     NSDate *stopEatingDate = [gregorian dateByAddingComponents:components toDate:TimeToWakeUp options:0];
-
     //hihi
     return stopEatingDate;
-    
-    
 }
 
 
