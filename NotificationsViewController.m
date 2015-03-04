@@ -94,10 +94,12 @@
         DateCalc *timeObject = [[DateCalc alloc]init];
         NSDate *notificationDate = [timeObject calculateTimeToStopEating:self.wakeUpTimeDatePicker.date];
         NSLog(@"Dit is het tijdstip dat gekozen is: %@", notificationDate);
-        
+        NSLog(@"Dit is de datepicker tijd: %@", self.wakeUpTimeDatePicker.date);
+      //  NSLog(@"Dit is de datum nu: %@", [NSDate date]);
         UIApplication *app = [UIApplication sharedApplication];
         UILocalNotification *eatAlarm = [[UILocalNotification alloc]init];
-        eatAlarm.fireDate = notificationDate;
+        eatAlarm.fireDate = [NSDate dateWithTimeInterval:-57600 sinceDate:self.wakeUpTimeDatePicker.date];//notificationDate;
+        NSLog(@"Dit is het alarm: %@", eatAlarm.fireDate);
         eatAlarm.timeZone = [NSTimeZone localTimeZone];
         eatAlarm.alertBody = @"Nu moet je stoppen met eten!";
         eatAlarm.alertAction = @"Stop met eten!!";
@@ -120,7 +122,7 @@
 {
     self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date];
     //alarmtijd naar notification sturen
-    
+    NSLog(@"Tijd is veranderd!");
     
 }
 

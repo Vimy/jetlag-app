@@ -22,8 +22,15 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        NSLog(@"Test");
     }
 #endif
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        // Set icon badge number to zero
+        NSLog(@"Hoi, app launched");
+        application.applicationIconBadgeNumber = 0;
+    }
     
   
     return YES;
@@ -38,7 +45,7 @@
         //[alert show];
     //}
     
-    // application.applicationIconBadgeNumber = 0;
+     application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
