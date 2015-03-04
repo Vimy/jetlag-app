@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NotificationManager : NSObject
+
+- (void)createNotification:(NSDate *)fireDate withNotificationID:(NSString *)notificationID;
+- (void)cancelNotification:(NSString *)notificationID withNotificationID:(NSString *)cancelNotificationID;
+- (void)cancelAllNotifications;
+
 
 @end

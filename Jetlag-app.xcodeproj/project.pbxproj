@@ -96,8 +96,6 @@
 		39A9D0151A07023D006735DB /* Jetlag-app */ = {
 			isa = PBXGroup;
 			children = (
-				39BEACC21AA744B300019F47 /* NotificationsViewController.m */,
-				39BEACC31AA744B300019F47 /* NotificationsViewController.h */,
 				39A9D01A1A07023D006735DB /* AppDelegate.h */,
 				39A9D01B1A07023D006735DB /* AppDelegate.m */,
 				39A9D01D1A07023D006735DB /* ViewController.h */,
@@ -109,6 +107,8 @@
 				39D46B991A9E7F3E0050232D /* NotificationManager.m */,
 				39F85C161A756EA5003557E3 /* MainViewController.h */,
 				39F85C171A756EA5003557E3 /* MainViewController.m */,
+				39BEACC31AA744B300019F47 /* NotificationsViewController.h */,
+				39BEACC21AA744B300019F47 /* NotificationsViewController.m */,
 				39F85C1F1A75C9F4003557E3 /* TransitionManager.h */,
 				39F85C201A75C9F4003557E3 /* TransitionManager.m */,
 				39A9D0231A07023D006735DB /* Images.xcassets */,
