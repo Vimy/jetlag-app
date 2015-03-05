@@ -8,6 +8,8 @@
 
 #import "NotificationsViewController.h"
 #import "DateCalc.h"
+#import "NotificationManager.h"
+
 
 #define kDatePickerSection 0
 #define kDatePickerIndex 1
@@ -17,6 +19,11 @@
 
 
 @interface NotificationsViewController ()
+{
+    NotificationManager *notifManager;
+
+}
+
 @property (strong, nonatomic) IBOutlet UIDatePicker *wakeUpTimeDatePicker;
 @property (strong, nonatomic) IBOutlet UITableViewCell *datePickerCell;
 @property (strong, nonatomic) IBOutlet UILabel *wakeUpTimeLabel;
@@ -29,7 +36,10 @@
 @property  BOOL datePickerIsShowing;
 @property BOOL reminderDatePickerIsShowing;
 @property BOOL isReminderToStopEating;
+
 @end
+
+
 
 @implementation NotificationsViewController
 
@@ -38,6 +48,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    notifManager = [[NotificationManager alloc]init];
+
+    
     self.wakeUpTimeDatePicker.hidden = YES;
     self.reminderMinutesDatePicker.hidden = YES;
  //   self.datePickerCell.hidden = YES;
@@ -87,20 +101,15 @@
     if (self.isReminderToStopEating)
     {
         DateCalc *timeObject = [[DateCalc alloc]init];
-        NSDate *notificationDate = [timeObject calculateTimeToStopEating:self.wakeUpTimeDatePicker.date];
+        NSDate *notificationDate = [NSDate dateWithTimeInterval:-57600 sinceDate:self.wakeUpTimeDatePicker.date]; //[timeObject calculateTimeToStopEating:self.wakeUpTimeDatePicker.date];
+        NSDictionary *eatAlarmDict = @{@"firedate":notificationDate, @"alertBody":@"You have to stop eating now.", @"alertAction":@"",@"soundname":UILocalNotificationDefaultSoundName};
+
+        [notifManager createNotification:eatAlarmDict];
+        
+        
         NSLog(@"Dit is het tijdstip dat gekozen is: %@", notificationDate);
         NSLog(@"Dit is de datepicker tijd: %@", self.wakeUpTimeDatePicker.date);
-      //  NSLog(@"Dit is de datum nu: %@", [NSDate date]);
-        UIApplication *app = [UIApplication sharedApplication];
-        UILocalNotification *eatAlarm = [[UILocalNotification alloc]init];
-        eatAlarm.fireDate = [NSDate dateWithTimeInterval:-57600 sinceDate:self.wakeUpTimeDatePicker.date];//notificationDate;
-        NSLog(@"Dit is het alarm: %@", eatAlarm.fireDate);
-        eatAlarm.timeZone = [NSTimeZone localTimeZone];
-        eatAlarm.alertBody = @"Nu moet je stoppen met eten!";
-        eatAlarm.alertAction = @"Stop met eten!!";
-        eatAlarm.soundName = UILocalNotificationDefaultSoundName;
-        eatAlarm.applicationIconBadgeNumber = [app applicationIconBadgeNumber]+1;
-        [app scheduleLocalNotification:eatAlarm];
+      
         
     }
     else

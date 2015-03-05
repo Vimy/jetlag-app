@@ -10,8 +10,23 @@
 
 @implementation NotificationManager
 
-- (void)createNotification:(NSDate *)fireDate withNotificationID:(NSString *)notificationID
+- (void)createNotification:(NSDictionary *)notificationInfo
 {
+    
+
+    UIApplication *app = [UIApplication sharedApplication];
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    notification.fireDate = [notificationInfo objectForKey:@"firedate"];
+    NSLog(@"Dit is het alarm: %@", notification.fireDate);
+    notification.timeZone = [NSTimeZone localTimeZone];
+    notification.alertBody = [notificationInfo objectForKey:@"alertBody"];
+    notification.alertAction = [notificationInfo objectForKey:@"alertAction"];;
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.applicationIconBadgeNumber = [app applicationIconBadgeNumber]+1;
+    [app scheduleLocalNotification:notification];
+
+    
+    
     // userinfo adden met Objectkey @"id"
 }
 

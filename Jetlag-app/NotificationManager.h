@@ -11,7 +11,7 @@
 
 @interface NotificationManager : NSObject
 
-- (void)createNotification:(NSDate *)fireDate withNotificationID:(NSString *)notificationID;
+- (void)createNotification:(NSDictionary *)notificationInfo;
 - (void)cancelNotification:(NSString *)notificationID withNotificationID:(NSString *)cancelNotificationID;
 - (void)cancelAllNotifications;
 
