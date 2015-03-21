@@ -18,6 +18,8 @@
 #define kDatePickerCellHeight 164
 
 
+
+
 @interface NotificationsViewController ()
 {
     NotificationManager *notifManager;
@@ -118,18 +120,31 @@
     }
   
     
-    
+    [self performSegueWithIdentifier:@"unwindChangeScreen" sender:self];
 }
 
 
 - (IBAction)setAlarmTime:(UIDatePicker *)sender
 {
-    self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date];
-    //alarmtijd naar notification sturen
+    self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date]; //alarmtijd naar notification sturen
     NSLog(@"Tijd is veranderd!");
+   
+    [self passTimeBackToMainViewController:self.wakeUpTimeLabel.text]; //delegate method
+    
     
 }
 
+- (void)passTimeBackToMainViewController:(NSString *)time
+{
+  
+    
+    if ([_delegate respondsToSelector:@selector(setAlarmTimeFromSettings:)])
+    {
+        NSLog(@"Delegate werkt");
+        [_delegate setAlarmTimeFromSettings:time];
+    }
+
+}
 - (IBAction)setStartOfFastNotification:(UISwitch *)sender
 {
     if (sender.on)

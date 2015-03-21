@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="J17-hs-vVO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="J17-hs-vVO">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -55,7 +55,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7ez-bq-r6n" kind="presentation" id="vbc-VF-3ZF"/>
+                                    <segue destination="7ez-bq-r6n" kind="presentation" identifier="" id="vbc-VF-3ZF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -145,7 +145,7 @@
         <!--Notifications View Controller-->
         <scene sceneID="dpj-ZQ-VUv">
             <objects>
-                <tableViewController id="0zM-Gq-3me" customClass="NotificationsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settings" id="0zM-Gq-3me" customClass="NotificationsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rEL-vS-aAt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,7 +279,7 @@
                     <navigationItem key="navigationItem" id="QXQ-s0-AGk">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="yT7-J5-hC0">
                             <connections>
-                                <segue destination="8oD-iI-UZQ" kind="unwind" unwindAction="unwindChangeScreen:" id="eHe-EX-rt0"/>
+                                <segue destination="8oD-iI-UZQ" kind="unwind" identifier="unwindChangeScreen" unwindAction="unwindChangeScreen:" id="eHe-EX-rt0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3xF-GQ-Sms">
@@ -308,6 +308,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7zK-M5-dLF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VfE-nh-cqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ez-bq-r6n" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iVe-kS-Dpb">
@@ -319,7 +320,6 @@
                         <segue destination="0zM-Gq-3me" kind="relationship" relationship="rootViewController" id="1Iw-cJ-gS7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VfE-nh-cqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2840" y="302"/>
         </scene>

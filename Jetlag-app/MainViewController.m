@@ -8,8 +8,9 @@
 
 #import "MainViewController.h"
 #import "TransitionManager.h"
+#import "NotificationsViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () <NotificationViewControllerDelegate>
 {
     TransitionManager *TSManager;
 }
@@ -21,12 +22,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+  
+    
     TSManager = [[TransitionManager alloc]init];
     self.cancelAlarmButton.hidden = YES;
     self.fastingBeginsLabel.hidden = YES;
     self.fastingBeginsHourLabel.hidden = YES;
     
-    self.AlarmTimeLabel.text = @"08:00";
+   // self.AlarmTimeLabel.text = @"08:00";
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,10 +40,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setAlarmTimeFromSettings:(NSString *)timeString
+{
+    self.AlarmTimeLabel.text = timeString;
+    NSLog(@"Hoi");
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    MainViewController *toViewController = segue.destinationViewController;
-    toViewController.transitioningDelegate = TSManager;
+   //MainViewController *toViewController = segue.destinationViewController;
+  //  toViewController.transitioningDelegate = TSManager;
+    NotificationsViewController *notifVC = [[NotificationsViewController alloc]init];
+    notifVC.delegate = self;
+    [self.navigationController pushViewController:notifVC animated:YES];
+    
 }
 
 

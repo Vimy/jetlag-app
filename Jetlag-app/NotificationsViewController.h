@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol NotificationViewControllerDelegate <NSObject>
+
+@required
+- (void)setAlarmTimeFromSettings:(NSString *)timeString;
+
+@end
 
 @interface NotificationsViewController : UITableViewController
 
+@property (nonatomic, weak) id <NotificationViewControllerDelegate> delegate;
+
 @end
+
+
+
+
