@@ -129,6 +129,9 @@
     self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date]; //alarmtijd naar notification sturen
     NSLog(@"Tijd is veranderd!");
    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TimeChanged" object:self.wakeUpTimeLabel.text  userInfo:nil];
+
+    
     [self passTimeBackToMainViewController:self.wakeUpTimeLabel.text]; //delegate method
     
     

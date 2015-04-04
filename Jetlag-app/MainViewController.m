@@ -14,6 +14,7 @@
 {
     TransitionManager *TSManager;
 }
+
 @property (strong, nonatomic) IBOutlet UILabel *AlarmTimeLabel;
 @end
 
@@ -23,7 +24,10 @@
 {
     [super viewDidLoad];
     
-  
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTimeLabel:) name: @"TimeChanged" object:nil];
+
+   
+    
     
     TSManager = [[TransitionManager alloc]init];
     self.cancelAlarmButton.hidden = YES;
@@ -33,6 +37,12 @@
    // self.AlarmTimeLabel.text = @"08:00";
     
     // Do any additional setup after loading the view.
+}
+
+- (void)changeTimeLabel:(NSNotification *)notification
+{
+    self.AlarmTimeLabel.text = (NSString *) notification.object;
+    self.cancelAlarmButton.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,8 +59,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
    //MainViewController *toViewController = segue.destinationViewController;
-  //  toViewController.transitioningDelegate = TSManager;
-    NotificationsViewController *notifVC = [[NotificationsViewController alloc]init];
+   //toViewController.transitioningDelegate = TSManager;
+    
+    
+     NotificationsViewController *notifVC = [[NotificationsViewController alloc]init];
     notifVC.delegate = self;
     [self.navigationController pushViewController:notifVC animated:YES];
     
