@@ -17,6 +17,7 @@
 		39A9D0331A07023D006735DB /* Jetlag_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A9D0321A07023D006735DB /* Jetlag_appTests.m */; };
 		39BEACC41AA744B300019F47 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEACC21AA744B300019F47 /* NotificationsViewController.m */; };
 		39D46B9A1A9E7F3E0050232D /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D46B991A9E7F3E0050232D /* NotificationManager.m */; };
+		39E1A6771ADC1EA700EF9CD7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E1A6761ADC1EA700EF9CD7 /* InfoViewController.m */; };
 		39F85C181A756EA5003557E3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F85C171A756EA5003557E3 /* MainViewController.m */; };
 		39F85C211A75C9F4003557E3 /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F85C201A75C9F4003557E3 /* TransitionManager.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		39BEACC31AA744B300019F47 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		39D46B981A9E7F3E0050232D /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		39D46B991A9E7F3E0050232D /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		39E1A6751ADC1EA700EF9CD7 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		39E1A6761ADC1EA700EF9CD7 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		39F85C161A756EA5003557E3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		39F85C171A756EA5003557E3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		39F85C1F1A75C9F4003557E3 /* TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				390ED73E1A50A66D00D35239 /* DateCalc.h */,
 				390ED73F1A50A66D00D35239 /* DateCalc.m */,
 				39A9D0201A07023D006735DB /* Main.storyboard */,
+				39E1A6751ADC1EA700EF9CD7 /* InfoViewController.h */,
+				39E1A6761ADC1EA700EF9CD7 /* InfoViewController.m */,
 				39D46B981A9E7F3E0050232D /* NotificationManager.h */,
 				39D46B991A9E7F3E0050232D /* NotificationManager.m */,
 				39F85C161A756EA5003557E3 /* MainViewController.h */,
@@ -193,6 +198,7 @@
 				TargetAttributes = {
 					39A9D0121A07023D006735DB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4TMN4G2PE7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -251,6 +257,7 @@
 			files = (
 				39A9D01F1A07023D006735DB /* ViewController.m in Sources */,
 				39BEACC41AA744B300019F47 /* NotificationsViewController.m in Sources */,
+				39E1A6771ADC1EA700EF9CD7 /* InfoViewController.m in Sources */,
 				39A9D01C1A07023D006735DB /* AppDelegate.m in Sources */,
 				39D46B9A1A9E7F3E0050232D /* NotificationManager.m in Sources */,
 				390ED7401A50A66D00D35239 /* DateCalc.m in Sources */,
@@ -378,10 +385,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Jetlag-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -389,10 +399,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Jetlag-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

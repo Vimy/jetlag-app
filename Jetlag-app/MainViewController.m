@@ -55,6 +55,12 @@
     self.AlarmTimeLabel.text = timeString;
     NSLog(@"Hoi");
 }
+- (IBAction)cancelAlarmButtonTouched:(UIButton *)sender
+{
+    self.cancelAlarmButton.hidden = TRUE;
+    self.AlarmTimeLabel.text = @"07:00";
+    
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

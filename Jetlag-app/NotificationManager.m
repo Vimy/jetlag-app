@@ -25,7 +25,7 @@
     notification.applicationIconBadgeNumber = [app applicationIconBadgeNumber]+1;
     [app scheduleLocalNotification:notification];
 
-    
+   // http://stackoverflow.com/questions/9232490/how-do-i-create-and-cancel-unique-uilocalnotification-from-a-custom-class
     
     // userinfo adden met Objectkey @"id"
 }

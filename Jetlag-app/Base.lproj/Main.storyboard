@@ -1,12 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="J17-hs-vVO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="J17-hs-vVO">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="9Av-2e-3Il">
+            <objects>
+                <viewController id="HDh-lQ-WrB" customClass="InfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uJH-3M-TPB"/>
+                        <viewControllerLayoutGuide type="bottom" id="e47-Wd-0AX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sTA-wV-IJm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info Blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5f-5j-ese">
+                                <rect key="frame" x="135" y="159" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETl-si-AV1">
+                                <rect key="frame" x="313" y="28" width="34" height="30"/>
+                                <state key="normal" title="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZHS-8w-uvw" kind="unwind" unwindAction="unwindChangeScreen:" id="UcA-Wy-seh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Brr-Ow-JqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZHS-8w-uvw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1679.5" y="301.5"/>
+        </scene>
         <!--How does it work?-->
         <scene sceneID="AnF-P1-4RD">
             <objects>
@@ -36,12 +73,18 @@
                                 <state key="normal" title="?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="HDh-lQ-WrB" kind="show" id="hKe-Vt-pBh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ7-sq-uum">
                                 <rect key="frame" x="140" y="176" width="92" height="30"/>
                                 <state key="normal" title="Cancel Alarm">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelAlarmButtonTouched:" destination="J17-hs-vVO" eventType="touchUpInside" id="Oou-su-ggx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-zx-5kL">
                                 <rect key="frame" x="84" y="84" width="205" height="104"/>
@@ -71,7 +114,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="AlarmTimeLabel" destination="3Jk-zx-5kL" id="5PM-lW-kfO"/>
-                        <outlet property="cancelAlarmButton" destination="dQ7-sq-uum" id="1zY-c3-Pwm"/>
+                        <outlet property="cancelAlarmButton" destination="dQ7-sq-uum" id="0c6-2k-meY"/>
                         <outlet property="fastingBeginsHourLabel" destination="QHz-yw-WW5" id="Uzc-TP-0fG"/>
                         <outlet property="fastingBeginsLabel" destination="ndu-b8-tNa" id="ocK-Wf-GTs"/>
                     </connections>
