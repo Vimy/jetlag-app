@@ -9,6 +9,19 @@
 #import "NotificationManager.h"
 
 @implementation NotificationManager
+{
+    UIApplication* objApp;
+}
+
+- (instancetype)init
+{
+    if (self)
+    {
+        objApp = [UIApplication sharedApplication];
+        NSArray*    oldNotifications = [objApp scheduledLocalNotifications];
+    }
+    return self;
+}
 
 - (void)createNotification:(NSDictionary *)notificationInfo
 {
@@ -21,6 +34,9 @@
     notification.timeZone = [NSTimeZone localTimeZone];
     notification.alertBody = [notificationInfo objectForKey:@"alertBody"];
     notification.alertAction = [notificationInfo objectForKey:@"alertAction"];;
+    notification.userInfo = [notificationInfo objectForKey:@"notificationName"];
+  
+   
     notification.soundName = UILocalNotificationDefaultSoundName;
     notification.applicationIconBadgeNumber = [app applicationIconBadgeNumber]+1;
     [app scheduleLocalNotification:notification];
@@ -30,10 +46,10 @@
     // userinfo adden met Objectkey @"id"
 }
 
-- (void)cancelNotification:(NSString *)notificationID withNotificationID:(NSString *)cancelNotificationID
+- (void)cancelNotificationWithNotificationID:(NSString *)cancelNotificationID
 {
     UILocalNotification *notificationTocancel = nil;
-    for (UILocalNotification *aNotification in [[UIApplication sharedApplication] scheduledLocalNotifications] )
+    for (UILocalNotification *aNotification in [objApp scheduledLocalNotifications] )
     {
         if ([[aNotification.userInfo objectForKey:@"ID"] isEqualToString:cancelNotificationID])
         {
@@ -42,12 +58,12 @@
         }
     }
     
-    [[UIApplication sharedApplication] cancelLocalNotification:notificationTocancel];
+    [objApp cancelLocalNotification:notificationTocancel];
     
 }
 
 - (void)cancelAllNotifications
 {
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [objApp cancelAllLocalNotifications];
 }
 @end

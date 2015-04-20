@@ -9,10 +9,13 @@
 #import "MainViewController.h"
 #import "TransitionManager.h"
 #import "NotificationsViewController.h"
+#import "NotificationManager.h"
+
 
 @interface MainViewController () <NotificationViewControllerDelegate>
 {
     TransitionManager *TSManager;
+    NotificationManager *notifManager;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *AlarmTimeLabel;
@@ -59,7 +62,7 @@
 {
     self.cancelAlarmButton.hidden = TRUE;
     self.AlarmTimeLabel.text = @"07:00";
-    
+    [notifManager cancelAllNotifications]; //[notifManager cancelNotificationWithNotificationID:@"alarm"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

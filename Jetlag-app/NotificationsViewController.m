@@ -104,10 +104,9 @@
     {
         DateCalc *timeObject = [[DateCalc alloc]init];
         NSDate *notificationDate = [NSDate dateWithTimeInterval:-57600 sinceDate:self.wakeUpTimeDatePicker.date]; //[timeObject calculateTimeToStopEating:self.wakeUpTimeDatePicker.date];
-        NSDictionary *eatAlarmDict = @{@"firedate":notificationDate, @"alertBody":@"You have to stop eating now.", @"alertAction":@"",@"soundname":UILocalNotificationDefaultSoundName};
+        NSDictionary *eatAlarmDict = @{@"firedate":notificationDate, @"alertBody":@"You have to stop eating now.", @"alertAction":@"",@"soundname":UILocalNotificationDefaultSoundName, @"notificationName":@"alarm" };
 
         [notifManager createNotification:eatAlarmDict];
-        
         
         NSLog(@"Dit is het tijdstip dat gekozen is: %@", notificationDate);
         NSLog(@"Dit is de datepicker tijd: %@", self.wakeUpTimeDatePicker.date);

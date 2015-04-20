@@ -12,7 +12,7 @@
 @interface NotificationManager : NSObject
 
 - (void)createNotification:(NSDictionary *)notificationInfo;
-- (void)cancelNotification:(NSString *)notificationID withNotificationID:(NSString *)cancelNotificationID;
+- (void)cancelNotificationWithNotificationID:(NSString *)cancelNotificationID;
 - (void)cancelAllNotifications;
 
 
