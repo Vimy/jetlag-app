@@ -11,6 +11,7 @@
 @implementation NotificationManager
 {
     UIApplication* objApp;
+    NSArray*    oldNotifications ;
 }
 
 - (instancetype)init
@@ -18,14 +19,14 @@
     if (self)
     {
         objApp = [UIApplication sharedApplication];
-        NSArray*    oldNotifications = [objApp scheduledLocalNotifications];
+        oldNotifications = [objApp scheduledLocalNotifications];
     }
     return self;
 }
 
 - (void)createNotification:(NSDictionary *)notificationInfo
 {
-    
+    NSLog(@"Notifications: %@", oldNotifications);
 
     UIApplication *app = [UIApplication sharedApplication];
     UILocalNotification *notification = [[UILocalNotification alloc]init];
@@ -34,7 +35,9 @@
     notification.timeZone = [NSTimeZone localTimeZone];
     notification.alertBody = [notificationInfo objectForKey:@"alertBody"];
     notification.alertAction = [notificationInfo objectForKey:@"alertAction"];;
-    notification.userInfo = [notificationInfo objectForKey:@"notificationName"];
+    
+    
+    notification.userInfo = notificationInfo; //[notificationInfo objectForKey:@"notificationName"];
   
    
     notification.soundName = UILocalNotificationDefaultSoundName;
@@ -48,10 +51,12 @@
 
 - (void)cancelNotificationWithNotificationID:(NSString *)cancelNotificationID
 {
+    NSLog(@"Called cancelNotifacations");
+    
     UILocalNotification *notificationTocancel = nil;
     for (UILocalNotification *aNotification in [objApp scheduledLocalNotifications] )
     {
-        if ([[aNotification.userInfo objectForKey:@"ID"] isEqualToString:cancelNotificationID])
+        if ([[aNotification.userInfo objectForKey:@"notificationName"] isEqualToString:cancelNotificationID])
         {
             notificationTocancel = aNotification;
             break;
@@ -59,11 +64,16 @@
     }
     
     [objApp cancelLocalNotification:notificationTocancel];
+
     
 }
 
 - (void)cancelAllNotifications
 {
+    NSLog(@"Called cancelallNotifications");
     [objApp cancelAllLocalNotifications];
+    
+    NSArray *notificationsList=  [objApp scheduledLocalNotifications];
+    NSLog(@"Lijst na delete: %@", notificationsList);
 }
 @end

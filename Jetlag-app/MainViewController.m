@@ -30,6 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTimeLabel:) name: @"TimeChanged" object:nil];
 
    
+    notifManager = [[NotificationManager  alloc]init];
     
     
     TSManager = [[TransitionManager alloc]init];
@@ -60,9 +61,11 @@
 }
 - (IBAction)cancelAlarmButtonTouched:(UIButton *)sender
 {
+    NSLog(@"Test");
     self.cancelAlarmButton.hidden = TRUE;
     self.AlarmTimeLabel.text = @"07:00";
-    [notifManager cancelAllNotifications]; //[notifManager cancelNotificationWithNotificationID:@"alarm"];
+    [notifManager cancelAllNotifications];
+    [notifManager cancelNotificationWithNotificationID:@"alarm"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
