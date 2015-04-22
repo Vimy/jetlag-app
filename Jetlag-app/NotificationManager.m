@@ -70,10 +70,12 @@
 
 - (void)cancelAllNotifications
 {
+    NSLog(@"Lijst na delete: %@", [objApp scheduledLocalNotifications]);
+
     NSLog(@"Called cancelallNotifications");
     [objApp cancelAllLocalNotifications];
     
-    NSArray *notificationsList=  [objApp scheduledLocalNotifications];
-    NSLog(@"Lijst na delete: %@", notificationsList);
+    
+    NSLog(@"Lijst na delete: %@", [objApp scheduledLocalNotifications]);
 }
 @end
