@@ -18,6 +18,7 @@
     NotificationManager *notifManager;
 }
 
+
 @property (strong, nonatomic) IBOutlet UILabel *AlarmTimeLabel;
 @end
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTimeLabel:) name: @"TimeChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTimeToStopEatingLabel:) name: @"TimeToStopEatingChanged" object:nil];
 
    
     notifManager = [[NotificationManager  alloc]init];
@@ -41,6 +43,12 @@
    // self.AlarmTimeLabel.text = @"08:00";
     
     // Do any additional setup after loading the view.
+}
+- (void)changeTimeToStopEatingLabel:(NSNotification *)notification
+{
+    self.fastingBeginsLabel.hidden = NO;
+    self.fastingBeginsHourLabel.hidden = NO;
+    self.fastingBeginsHourLabel.text = (NSString *) notification.object;
 }
 
 - (void)changeTimeLabel:(NSNotification *)notification

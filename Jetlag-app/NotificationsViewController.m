@@ -9,7 +9,7 @@
 #import "NotificationsViewController.h"
 #import "DateCalc.h"
 #import "NotificationManager.h"
-
+#import "MainViewController.h"
 
 #define kDatePickerSection 0
 #define kDatePickerIndex 1
@@ -56,7 +56,6 @@
     
     self.wakeUpTimeDatePicker.hidden = YES;
     self.reminderMinutesDatePicker.hidden = YES;
- //   self.datePickerCell.hidden = YES;
     self.datePickerIsShowing = NO;
     self.reminderDatePickerIsShowing = NO;
     self.reminderMinutesDatePicker.datePickerMode = UIDatePickerModeTime;
@@ -110,14 +109,14 @@
         
         NSLog(@"Dit is het tijdstip dat gekozen is: %@", notificationDate);
         NSLog(@"Dit is de datepicker tijd: %@", self.wakeUpTimeDatePicker.date);
-      
-        
     }
     else
     {
         NSLog(@"nope");
     }
-  
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TimeChanged" object:self.wakeUpTimeLabel.text  userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TimeToStopEatingChanged" object:self.wakeUpTimeLabel.text  userInfo:nil];
     
     [self performSegueWithIdentifier:@"unwindChangeScreen" sender:self];
 }
@@ -128,7 +127,6 @@
     self.wakeUpTimeLabel.text = [self.dateFormatter stringFromDate:sender.date]; //alarmtijd naar notification sturen
     NSLog(@"Tijd is veranderd!");
    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TimeChanged" object:self.wakeUpTimeLabel.text  userInfo:nil];
 
     
     [self passTimeBackToMainViewController:self.wakeUpTimeLabel.text]; //delegate method
@@ -285,55 +283,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - Table view data source
 
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

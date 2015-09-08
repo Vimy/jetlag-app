@@ -68,6 +68,10 @@
     
 }
 
+
+
+
+
 - (void)cancelAllNotifications
 {
     NSLog(@"Lijst na delete: %@", [objApp scheduledLocalNotifications]);

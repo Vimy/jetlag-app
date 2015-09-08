@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F9B744D4-E33B-4771-87FC-064B90B78C77</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Jetlag-app</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D98CA2C81EFA232991C3E3D52AFC3D85CBFBDC2A</key>
 		<string>github.com:Vimy/jetlag-app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Jetlag-app.xcodeproj/project.xcworkspace</string>
+	<string>Jetlag-app.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D98CA2C81EFA232991C3E3D52AFC3D85CBFBDC2A</key>
