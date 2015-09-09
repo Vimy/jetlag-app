@@ -29,6 +29,8 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    //zooooo moe en ziek :( :(
+    
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)chooseWakeUpTime:(UIDatePicker *)sender
