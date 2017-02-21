@@ -255,7 +255,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%i", (long)indexPath.row);
+    NSLog(@"%li", (long)indexPath.row);
     
     if (indexPath.row == 0 & indexPath.section == 0){
         
@@ -290,6 +290,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
